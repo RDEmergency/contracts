@@ -74,7 +74,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/openzeppelin/contracts@4.4.2/security/Pausable.sol": "Pausable"
+			".deps/npm/@openzeppelin/contracts@4.4.2/security/Pausable.sol": "Pausable"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -88,7 +88,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/openzeppelin/contracts@4.4.2/security/Pausable.sol": {
+		".deps/npm/@openzeppelin/contracts@4.4.2/security/Pausable.sol": {
 			"keccak256": "0xe68ed7fb8766ed1e888291f881e36b616037f852b37d96877045319ad298ba87",
 			"license": "MIT",
 			"urls": [
@@ -96,7 +96,7 @@
 				"dweb:/ipfs/QmUQXhSV8ZvHLzfdG89ZNSh1nLrAYyjnNBLznJGwGcwVk8"
 			]
 		},
-		"contracts/openzeppelin/contracts@4.4.2/utils/Context.sol": {
+		".deps/npm/@openzeppelin/contracts@4.4.2/utils/Context.sol": {
 			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
 			"license": "MIT",
 			"urls": [

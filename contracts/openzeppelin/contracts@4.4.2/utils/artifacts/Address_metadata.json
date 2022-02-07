@@ -19,7 +19,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/openzeppelin/contracts@4.4.2/utils/Address.sol": "Address"
+			".deps/npm/@openzeppelin/contracts@4.4.2/utils/Address.sol": "Address"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -33,7 +33,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/openzeppelin/contracts@4.4.2/utils/Address.sol": {
+		".deps/npm/@openzeppelin/contracts@4.4.2/utils/Address.sol": {
 			"keccak256": "0x51b758a8815ecc9596c66c37d56b1d33883a444631a3f916b9fe65cb863ef7c4",
 			"license": "MIT",
 			"urls": [

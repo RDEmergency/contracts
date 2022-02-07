@@ -43,7 +43,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/openzeppelin/contracts@4.4.2/utils/introspection/IERC165.sol": "IERC165"
+			".deps/npm/@openzeppelin/contracts@4.4.2/utils/introspection/IERC165.sol": "IERC165"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -57,7 +57,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/openzeppelin/contracts@4.4.2/utils/introspection/IERC165.sol": {
+		".deps/npm/@openzeppelin/contracts@4.4.2/utils/introspection/IERC165.sol": {
 			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
 			"license": "MIT",
 			"urls": [

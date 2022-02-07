@@ -2,47 +2,39 @@
 pragma solidity ^0.8.2;
 
 import "/contracts/openzeppelin/contracts@4.4.2/token/ERC1155/ERC1155.sol";
-import "/contracts/openzeppelin/contracts@4.4.2/access/AccessControl.sol";
+import "/contracts/openzeppelin/contracts@4.4.2/access/Ownable.sol";
 import "/contracts/openzeppelin/contracts@4.4.2/security/Pausable.sol";
+import "/contracts/openzeppelin/contracts@4.4.2/utils/Strings.sol";
 
-contract MyToken is ERC1155, AccessControl, Pausable {
-    bytes32 public constant URI_SETTER_ROLE = keccak256("URI_SETTER_ROLE");
-    bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
-    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+contract QPPNFT is ERC1155, Ownable, Pausable {
+    using Strings for string;
 
-    constructor(address deputyAdministrator) ERC1155("http://35.201.130.36:8089/{id}.json") {
-        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        _grantRole(URI_SETTER_ROLE, msg.sender);
-        _grantRole(PAUSER_ROLE, msg.sender);
-        _grantRole(MINTER_ROLE, msg.sender);
-        _grantRole(DEFAULT_ADMIN_ROLE, deputyAdministrator);
-        _grantRole(URI_SETTER_ROLE, deputyAdministrator);
-        _grantRole(PAUSER_ROLE, deputyAdministrator);
-        _grantRole(MINTER_ROLE, deputyAdministrator);
+    constructor(address deputyAdministrator) ERC1155("https://idupdate01.luckytablegame.com/FR/") {
+        transferOwnership(deputyAdministrator);
     }
 
-    function setURI(string memory newuri) public onlyRole(URI_SETTER_ROLE) {
+    function setURI(string memory newuri) public onlyOwner {
         _setURI(newuri);
     }
 
-    function pause() public onlyRole(PAUSER_ROLE) {
+    function pause() public onlyOwner {
         _pause();
     }
 
-    function unpause() public onlyRole(PAUSER_ROLE) {
+    function unpause() public onlyOwner {
         _unpause();
     }
 
     function mint(address account, uint256 id, uint256 amount, bytes memory data)
         public
-        onlyRole(MINTER_ROLE)
+        onlyOwner
     {
         _mint(account, id, amount, data);
     }
 
     function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
         public
-        onlyRole(MINTER_ROLE)
+        onlyOwner
     {
         _mintBatch(to, ids, amounts, data);
     }
@@ -55,14 +47,8 @@ contract MyToken is ERC1155, AccessControl, Pausable {
         super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
     }
 
-    // The following functions are overrides required by Solidity.
-
-    function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        override(ERC1155, AccessControl)
-        returns (bool)
+    function uri(uint256 _id) override public view returns (string memory) 
     {
-        return super.supportsInterface(interfaceId);
+        return string(abi.encodePacked(super.uri(_id),Strings.toString(_id),".json"));
     }
 }
