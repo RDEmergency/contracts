@@ -9,7 +9,7 @@ import "/contracts/openzeppelin/contracts@4.4.2/utils/Strings.sol";
 contract QPPNFT is ERC1155, Ownable, Pausable {
     using Strings for string;
 
-    constructor(address deputyAdministrator) ERC1155("") { transferOwnership(deputyAdministrator); }
+    constructor(address deputyAdministrator,string memory url) ERC1155(url) { transferOwnership(deputyAdministrator); }
     //constructor() ERC1155("") {}
 
     function setURI(string memory newuri) public onlyOwner { _setURI(newuri); }
